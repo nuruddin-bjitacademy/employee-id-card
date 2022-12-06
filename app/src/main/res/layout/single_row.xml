@@ -12,7 +12,7 @@
     tools:context=".MainActivity">
 
     <RelativeLayout
-        android:id="@+id/headRL"
+        android:id="@+id/upper_layer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -58,8 +58,7 @@
         android:background="@drawable/sidebar"
         android:layout_width="120dp"
         android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headRL" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -72,7 +71,7 @@
         android:layout_height="300dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headRL"/>
+        app:layout_constraintTop_toBottomOf="@+id/upper_layer"/>
 
 
     <TextView

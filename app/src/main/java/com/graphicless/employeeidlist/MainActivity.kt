@@ -3,9 +3,11 @@ package com.graphicless.employeeidlist
 import android.os.Bundle
 import android.provider.ContactsContract.Data
 import android.util.Log
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.graphicless.employeeidlist.adapter.DataAdapter
+import com.graphicless.employeeidlist.databinding.ActivityMainBinding
 import com.graphicless.employeeidlist.model.DataModel
 import org.json.JSONArray
 import org.json.JSONObject
@@ -15,18 +17,19 @@ import java.io.InputStream
 
 private const val TAG = "MainActivity"
 val employees  = mutableListOf<DataModel>()
+private lateinit var binding: ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         LoadJSON()
 
         val dataset = employees
 
-        val recyclerView = findViewById<RecyclerView>(R.id.rv_employee_id_card)
-        recyclerView.adapter = DataAdapter(this, dataset)
-        recyclerView.hasFixedSize()
+        binding.rvEmployeeIdCard.adapter = DataAdapter(this, dataset)
+        binding.rvEmployeeIdCard.hasFixedSize()
     }
 
     fun LoadJSON(){
